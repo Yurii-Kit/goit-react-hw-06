@@ -4,7 +4,7 @@ import css from './ContactForm.module.css';
 import { ContactFormSchema } from './ContactFormSchema';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/store';
+import { addContact } from '../../redux/contactsSlice';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
