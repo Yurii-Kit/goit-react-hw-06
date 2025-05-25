@@ -37,6 +37,15 @@ const rootReducer = (state = initialState, action) => {
         },
       };
     }
+    case 'filters/setFilter': {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          name: action.payload,
+        },
+      };
+    }
     default:
       return state;
   }
@@ -47,3 +56,5 @@ export const store = configureStore({ reducer: rootReducer });
 export const addContact = createAction('contacts/addContact');
 
 export const deleteContact = createAction('contacts/deleteContact');
+
+export const changeFilter = createAction('filters/setFilter');
