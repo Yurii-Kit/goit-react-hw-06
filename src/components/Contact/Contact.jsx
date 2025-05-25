@@ -1,11 +1,16 @@
 import { FaUser } from 'react-icons/fa';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import css from './Contact.module.css';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/store';
 
-export default function Contact({
-  listIteam: { id, name, number },
-  handleDelete,
-}) {
+export default function Contact({ listIteam: { id, name, number } }) {
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    console.log(`Deleting contact with id: ${id}`);
+
+    dispatch(deleteContact(id));
+  };
   return (
     <>
       <div>
@@ -19,7 +24,7 @@ export default function Contact({
           <span className={css.text}>{number}</span>
         </p>
       </div>
-      <button type="button" onClick={() => handleDelete(id)}>
+      <button type="button" onClick={handleDelete} className={css.button}>
         Delete
       </button>
     </>
